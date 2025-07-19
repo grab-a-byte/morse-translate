@@ -92,6 +92,9 @@ func EncryptMorse(input string) (MorseCode, error) {
 }
 
 func DecryptMorse(input MorseCode) (string, error) {
+	if strings.Contains(string(input), "  ") {
+		return "", ErrorInvalidDoubleSpaces
+	}
 	out := make([]string, len(input))
 	codes := strings.Split(string(input), " ")
 	for i, m := range codes {

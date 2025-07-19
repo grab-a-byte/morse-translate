@@ -66,6 +66,12 @@ func TestDecryptMorse(t *testing.T) {
 			expected: "",
 			err:      morse.ErrorInvalidCharacterFromMorse,
 		},
+		{
+			name:     "Empty space decrypting returns error",
+			input:    "  ",
+			expected: "",
+			err:      morse.ErrorInvalidDoubleSpaces,
+		},
 	}
 
 	for _, c := range cases {
