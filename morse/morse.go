@@ -106,5 +106,5 @@ func DecryptMorse(input MorseCode) (string, error) {
 		out[i] = string(val)
 	}
 
-	return strings.Trim(strings.Join(out, ""), " "), nil
+	return strings.Join(out, ""), nil
 }
