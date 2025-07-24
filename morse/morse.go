@@ -7,7 +7,7 @@ import (
 
 type MorseCode string
 
-var ErrorInvalidCharacterToMorse = errors.New("invalid charcter to be translated to morse")
+var ErrorInvalidCharacterToMorse = errors.New("invalid character to be translated to morse")
 
 var ErrorInvalidCharacterFromMorse = errors.New("invalid charcter to be translated from morse")
 
