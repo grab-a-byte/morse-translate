@@ -67,15 +67,15 @@ func Translate(input string) (string, error) {
 	parts := strings.Split(input, " ")
 	for _, c := range parts[0] {
 		if c != '.' && c != '-' {
-			out, err := EncryptMorse(input)
+			out, err := EncodeMorse(input)
 			return string(out), err
 		}
 	}
 
-	return DecryptMorse(MorseCode(input))
+	return DecodeMorse(MorseCode(input))
 }
 
-func EncryptMorse(input string) (MorseCode, error) {
+func EncodeMorse(input string) (MorseCode, error) {
 	if strings.Contains(input, "  ") {
 		return "", ErrorInvalidDoubleSpaces
 	}
@@ -91,7 +91,7 @@ func EncryptMorse(input string) (MorseCode, error) {
 	return MorseCode(strings.Join(out, " ")), nil
 }
 
-func DecryptMorse(input MorseCode) (string, error) {
+func DecodeMorse(input MorseCode) (string, error) {
 	if strings.Contains(string(input), "  ") {
 		return "", ErrorInvalidDoubleSpaces
 	}

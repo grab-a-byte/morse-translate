@@ -42,7 +42,7 @@ func main() {
 		}
 
 		if req.Type == "MorseCode" {
-			result, err := morse.DecryptMorse(morse.MorseCode(req.Message))
+			result, err := morse.DecodeMorse(morse.MorseCode(req.Message))
 			if err != nil {
 				errMsg := fmt.Sprintf("Failed to complete request with error %s", err)
 				http.Error(w, errMsg, http.StatusBadRequest)
@@ -64,7 +64,7 @@ func main() {
 			w.Write(resJson)
 			return
 		} else if req.Type == "Text" {
-			result, err := morse.EncryptMorse(req.Message)
+			result, err := morse.EncodeMorse(req.Message)
 			if err != nil {
 				errMsg := fmt.Sprintf("Failed to complete request with error %s", err)
 				http.Error(w, errMsg, http.StatusBadRequest)

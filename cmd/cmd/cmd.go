@@ -13,7 +13,7 @@ func main() {
 	input := flag.Arg(0)
 
 	if *typePtr == "MorseCode" {
-		res, err := morse.DecryptMorse(morse.MorseCode(input))
+		res, err := morse.DecodeMorse(morse.MorseCode(input))
 		if err != nil {
 			fmt.Printf("%s\n", err)
 			os.Exit(43)
@@ -22,7 +22,7 @@ func main() {
 		fmt.Println(res)
 		return
 	} else if *typePtr == "Text" {
-		res, err := morse.EncryptMorse(input)
+		res, err := morse.EncodeMorse(input)
 		if err != nil {
 			fmt.Printf("%s\n", err)
 			os.Exit(41)

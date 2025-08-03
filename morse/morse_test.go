@@ -76,7 +76,7 @@ func TestDecryptMorse(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
-			value, err := morse.DecryptMorse(morse.MorseCode(c.input))
+			value, err := morse.DecodeMorse(morse.MorseCode(c.input))
 			if value != c.expected {
 				t.Errorf("Expected '%s' from '%s' but got '%s' with error '%s'", c.expected, c.input, value, err)
 			}
@@ -171,7 +171,7 @@ func TestEncryptMorse(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
-			value, err := morse.EncryptMorse(c.input)
+			value, err := morse.EncodeMorse(c.input)
 			if value != c.expected {
 				t.Errorf("Expected '%s' from '%s' but got '%s' with error '%s'", c.expected, c.input, value, err)
 			}
